@@ -4,13 +4,15 @@ Easily add custom getter and setter filters for attributes on ActiveRecord objec
 
 ## Requirements
 
-For Ruby 1.9.0 and greater.
+For Ruby 1.9.0 and greater. Tested with Rails 3.1+ using ActiveRecord.  It should work with any ORM that provides a hash syntax for accessing attributes in Models (please let me know if you have success/failures with other ORMs).
 
 ## Installation
 
 Add the requirement to your Gemfile
 
 `gem "in_format"`
+
+That's it if using ActiveRecord.  If using a different ORM you will need to `extend InFormat` on the models, add an initializer or shoehorn it in some other way.
 
 ## Usage
 
