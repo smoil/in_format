@@ -1,12 +1,6 @@
 class Beaver < ActiveRecord::Base
-  phone_format :phone
-  phone_format :custom_phone, scrubber: Proc.new {|v| v.gsub("3", "9") }, formatter: Proc.new {|v| v.gsub("9", "P") }
+  phone_format :phone, include_raw: true
+  phone_format :custom_phone, setter: Proc.new {|v| v.gsub("3", "9") },
+                              getter: Proc.new {|v| v.gsub("9", "P") }
 
-  def stored_phone
-    self[:phone]
-  end
-
-  def stored_custom_phone
-    self[:custom_phone]
-  end
 end
