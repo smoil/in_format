@@ -6,6 +6,12 @@ Easily add custom getter and setter filters for attributes on ActiveRecord objec
 
 For Ruby 1.9.0 and greater.
 
+## Installation
+
+Add the requirement to your Gemfile
+
+`gem "in_format"`
+
 ## Usage
 
 Invoke `in_format`, `phone_format` or `ssn_format` in your Model for attributes you wish to process.
