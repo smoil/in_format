@@ -66,6 +66,10 @@ end
 
 If you have getters/setters you would like to re-use across many attributes or classes I would stick em all in a (well-tested) module and keep an eye out for edge cases.
 
+## Upcoming
+
+Currently this is written specifically for ActiveRecord but I will be changing it to be compatible with any Ruby class.  Stay tuned.
+
 ## License
 
 * Freely distributable and licensed under the [MIT license](http://cfarajpour.mit-license.org/license.html).
