@@ -14,10 +14,15 @@
 ActiveRecord::Schema.define(:version => 20120301054737) do
 
   create_table "beavers", :force => true do |t|
+    t.string   "name"
+    t.string   "name_no_set"
+    t.string   "name_no_get"
     t.string   "phone"
-    t.string   "custom_phone"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "phone_custom_set"
+    t.string   "phone_custom_get"
+    t.string   "ssn"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

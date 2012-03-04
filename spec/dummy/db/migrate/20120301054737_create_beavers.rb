@@ -1,8 +1,13 @@
 class CreateBeavers < ActiveRecord::Migration
   def change
     create_table :beavers do |t|
+      t.string :name
+      t.string :name_no_set
+      t.string :name_no_get
       t.string :phone
-      t.string :custom_phone
+      t.string :phone_custom_set
+      t.string :phone_custom_get
+      t.string :ssn
       t.timestamps
     end
   end

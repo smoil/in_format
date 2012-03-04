@@ -6,37 +6,36 @@ describe InFormat do
     InFormat.class.should eq(Module)
   end
 
-  it "unintialized value should be nil" do
-    beaver = Beaver.new
-    beaver.phone.should be_nil
+  context "with a field that has a getter and setter defined" do
+    let(:beaver) { Beaver.new(name: "american_beaver") }
+
+    it "should store a value processed by the setter" do
+      beaver.name(true).should eq("AMERICAN_BEAVER")
+    end
+
+    it "should a value processed by the getter" do
+      beaver.name.should eq("AMERICANBeaver")
+    end
   end
 
-  it "created with '2223334444'" do
-    beaver = Beaver.create(phone: "2223334444")
-    beaver.phone.should eq "222-333-4444"
-    beaver.phone(true).should eq "2223334444"
+  context "with a field that only has a getter defined" do
+    let(:beaver) { Beaver.new(name_no_set: "american_beaver") }
+
+    it "should store a value processed by the setter" do
+      beaver.name_no_set(true).should eq("american_beaver")
+    end
+
+    it "should a value processed by the getter" do
+      beaver.name_no_set.should eq("AmericanBeaver")
+    end
   end
 
-  it "created with '1 213 645 1212 ext 41'" do
-    beaver = Beaver.create(phone: "1 213 645 1212 ext 41")
-    beaver.phone.should eq "1-213-645-1212 x41"
-    beaver.phone(true).should eq "12136451212x41"
-  end
+  context "with a field that only has a setter defined" do
+    let(:beaver) { Beaver.new(name_no_get: "american_beaver") }
 
-  it "created with '1 (213) 645-1212 41'" do
-    beaver = Beaver.create(phone: "1 (213) 645-1212 x41")
-    beaver.phone.should eq "1-213-645-1212 x41"
-    beaver.phone(true).should eq "12136451212x41"
-  end
-
-  it "with a custom scrubber" do
-    beaver = Beaver.create(custom_phone: "1 (333) 645-1212 x41")
-    beaver.custom_phone(true).should eq "1 (999) 645-1212 x41"
-  end
-
-  it "with a custom scrubber and formatter" do
-    beaver = Beaver.create(custom_phone: "1 (333) 645-1212 x41")
-    beaver.custom_phone.should eq "1 (PPP) 645-1212 x41"
+    it "should a value processed by the getter" do
+      beaver.name_no_get.should eq("AMERICAN_BEAVER")
+    end
   end
 
 end
