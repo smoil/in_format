@@ -6,13 +6,13 @@ Easily add custom getter and setter filters for attributes on ActiveRecord objec
 
 Invoke `in_format`, `phone_format` or `ssn_format` in your Model for attributes you wish to process.
 
-## in_format
+### in_format
 
 The `in_format` method is the most general and accepts a getter and/or a setter.  
 
 Under the hood these override the existing setters/getters and process the value through the supplied Proc/lambda.
 
-You can access the original getter by passing `true` to the new one
+You can access the original getter by passing `true` to the new one (assuming you supplied a getter).
 
 ```ruby
 class MyModel < ActiveRecord::Base
@@ -28,7 +28,7 @@ end
 
 This example is contrived and a little dangerous, `MyModel.new(name: nil) #=> splode!`, but you can do a lot with getters/setters.
 
-## phone_format
+### phone_format
 
 `phone_format` uses `in_format` with some pre-defined getters and setters.
 
@@ -46,9 +46,9 @@ end
 
 You can supply your own getter or setter like `in_format` if the defaults don't match your needs.
 
-## ssn_format
+### ssn_format
 
-`ssn_format` works much like `phone_format`
+`ssn_format` works much like `phone_format`, also accepts custom getters/setters.
 
 ```ruby
 class MyModel < ActiveRecord::Base
@@ -61,6 +61,10 @@ end
   m.name(true) #=> "123456789"
   m.name #=> "123-45-6789"
 </pre>
+
+## Reccomendations
+
+If you have getters/setters you would like to re-use across many attributes or classes I would stick em all in a (well-tested) module and keep an eye out for edge cases.
 
 ## License
 
