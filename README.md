@@ -78,6 +78,17 @@ end
 
 If you have getters/setters you would like to re-use across many attributes or classes I would stick em all in a (well-tested) module and keep an eye out for edge cases.
 
+```
+module MyFormatters
+  CAPS = -> v { |v| v.capitalize }
+  NO_CATS = -> v { |v| v.gsub("cat", "") }
+end
+
+class MyModel < ActiveRecord::Base
+  in_format :dog_name, setter: MyFormatters::NO_CATS, getter: MyFormatters::CAPS
+end
+```
+
 ## Upcoming
 
 Currently this is written specifically for ActiveRecord but I hope to make it compatible with more ORMs.  Stay tuned.
