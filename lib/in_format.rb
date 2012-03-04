@@ -3,8 +3,8 @@ require "in_format/formatters"
 module InFormat
 
   def phone_format(attribute, opts = {})
-    setter = opts[:setter] ? opts[:setter] : InFormat::Formatters::DEFAULT_SCRUBBER
-    getter = opts[:getter] ? opts[:getter] : InFormat::Formatters::DEFAULT_FORMATTER
+    setter = opts[:setter] ? opts[:setter] : InFormat::Formatters::Phone::DEFAULT_SETTER
+    getter = opts[:getter] ? opts[:getter] : InFormat::Formatters::Phone::DEFAULT_GETTER
 
     in_format(attribute, setter: setter, getter: getter)
   end # end phone_format
