@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require
-require "phone_format"
+require "in_format"
 
 module Dummy
   class Application < Rails::Application

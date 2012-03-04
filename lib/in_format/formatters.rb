@@ -1,6 +1,6 @@
 include ActionView::Helpers::NumberHelper
 
-module PhoneFormat
+module InFormat
   module Formatters
     DEFAULT_SCRUBBER = lambda { |value| value.to_s.gsub(/[^\d|x]/, "") }
 

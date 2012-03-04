@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    phone_format (0.0.1)
+    in_format (0.0.1)
       rails (~> 3.2.1)
 
 GEM
@@ -92,6 +92,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  in_format!
   jquery-rails
-  phone_format!
   sqlite3

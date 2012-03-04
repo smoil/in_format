@@ -1,8 +1,8 @@
 require "test_helper"
 
-class PhoneFormatTest < ActiveSupport::TestCase
+class InFormatTest < ActiveSupport::TestCase
   test "truth" do
-    assert_kind_of Module, PhoneFormat
+    assert_kind_of Module, InFormat
   end
 
   test "unintialized value should be nil" do

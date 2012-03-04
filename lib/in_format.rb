@@ -1,10 +1,10 @@
-require "phone_format/formatters"
+require "in_format/formatters"
 
-module PhoneFormat
+module InFormat
 
   def phone_format(attribute, opts = {})
-    setter = opts[:setter] ? opts[:setter] : PhoneFormat::Formatters::DEFAULT_SCRUBBER
-    getter = opts[:getter] ? opts[:getter] : PhoneFormat::Formatters::DEFAULT_FORMATTER
+    setter = opts[:setter] ? opts[:setter] : InFormat::Formatters::DEFAULT_SCRUBBER
+    getter = opts[:getter] ? opts[:getter] : InFormat::Formatters::DEFAULT_FORMATTER
 
     in_format(attribute, setter: setter, getter: getter)
   end # end phone_format
@@ -30,4 +30,4 @@ module PhoneFormat
 
 end
 
-ActiveRecord::Base.extend(PhoneFormat)
+ActiveRecord::Base.extend(InFormat)
