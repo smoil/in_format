@@ -2,6 +2,10 @@
 
 Easily add custom getter and setter filters for attributes on ActiveRecord objects.  These can be useful if you wish to scrub data before it hits your datastore and/or provide uniformity when reading.
 
+## Requirements
+
+For Ruby 1.9.0 and greater.
+
 ## Usage
 
 Invoke `in_format`, `phone_format` or `ssn_format` in your Model for attributes you wish to process.
