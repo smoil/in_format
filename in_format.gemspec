@@ -9,11 +9,11 @@ Gem::Specification.new do |s|
   s.version     = InFormat::VERSION
   s.authors     = ["Cyrus Farajpour"]
   s.email       = ["cfarajpour@newleaders.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of InFormat."
-  s.description = "TODO: Description of InFormat."
+  s.homepage    = "https://github.com/smoil/in_format"
+  s.summary     = "Easily add custom getter and setter filters for attributes."
+  s.description = "Easily add custom getter and setter filters for attributes."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.txt", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3"
