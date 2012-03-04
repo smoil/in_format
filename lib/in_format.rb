@@ -7,10 +7,16 @@ module InFormat
     getter = opts[:getter] ? opts[:getter] : InFormat::Formatters::Phone::DEFAULT_GETTER
 
     in_format(attribute, setter: setter, getter: getter)
-  end # end phone_format
+  end
+
+  def ssn_format(attribute, opts = {})
+    setter = opts[:setter] ? opts[:setter] : InFormat::Formatters::Ssn::DEFAULT_SETTER
+    getter = opts[:getter] ? opts[:getter] : InFormat::Formatters::Ssn::DEFAULT_GETTER
+
+    in_format(attribute, setter: setter, getter: getter)
+  end
 
   def in_format(attribute, opts = {})
-
     if opts[:setter]
       define_method("#{attribute}=") do |value|
         self[attribute.to_sym] = opts[:setter].call(value)

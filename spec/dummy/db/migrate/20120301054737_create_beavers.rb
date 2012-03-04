@@ -8,6 +8,8 @@ class CreateBeavers < ActiveRecord::Migration
       t.string :phone_custom_set
       t.string :phone_custom_get
       t.string :ssn
+      t.string :ssn_custom_set
+      t.string :ssn_custom_get
       t.timestamps
     end
   end

@@ -7,4 +7,8 @@ class Beaver < ActiveRecord::Base
   phone_format :phone_custom_set, setter: Proc.new {|v| v.gsub("3", "9") }
   phone_format :phone_custom_get, getter: Proc.new {|v| v.gsub("9", "P") }
 
+  ssn_format :ssn
+  ssn_format :ssn_custom_set, setter: Proc.new {|v| v.gsub("3", "9") }
+  ssn_format :ssn_custom_get, getter: Proc.new {|v| v.gsub("9", "P") }
+
 end

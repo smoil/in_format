@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20120301054737) do
     t.string   "phone_custom_set"
     t.string   "phone_custom_get"
     t.string   "ssn"
+    t.string   "ssn_custom_set"
+    t.string   "ssn_custom_get"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
