@@ -78,7 +78,7 @@ end
 
 If you have getters/setters you would like to re-use across many attributes or classes I would stick em all in a (well-tested) module and keep an eye out for edge cases.
 
-```
+```ruby
 module MyFormatters
   CAPS = -> v { |v| v ? v.to_s.capitalize : "Generic Dog Name" }
   NO_CATS = lambda do |v|
