@@ -80,7 +80,7 @@ If you have getters/setters you would like to re-use across many attributes or c
 
 ## Upcoming
 
-Currently this is written specifically for ActiveRecord but I will be changing it to be compatible with any Ruby class.  Stay tuned.
+Currently this is written specifically for ActiveRecord but I hope to make it compatible with more ORMs.  Stay tuned.
 
 ## License
 
