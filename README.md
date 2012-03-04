@@ -80,8 +80,14 @@ If you have getters/setters you would like to re-use across many attributes or c
 
 ```
 module MyFormatters
-  CAPS = -> v { |v| v.capitalize }
-  NO_CATS = -> v { |v| v.gsub("cat", "") }
+  CAPS = -> v { |v| v ? v.to_s.capitalize : "Generic Dog Name" }
+  NO_CATS = lambda do |v|
+    if v =~ /cat/
+      v.gsub("cat", "")
+    else
+      v
+    end
+  end
 end
 
 class MyModel < ActiveRecord::Base
