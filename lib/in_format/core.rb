@@ -2,6 +2,7 @@ module InFormat
 
   def in_format(attribute, opts = {})
     if opts[:setter]
+
       define_method("#{attribute}=") do |value|
         self[attribute.to_sym] = opts[:setter].call(value)
       end

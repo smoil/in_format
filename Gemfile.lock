@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     in_format (0.0.1)
-      rails (~> 3)
 
 GEM
   remote: http://rubygems.org/
@@ -108,5 +107,6 @@ PLATFORMS
 DEPENDENCIES
   in_format!
   jquery-rails
+  rails (~> 3)
   rspec-rails (~> 2.8.1)
   sqlite3
