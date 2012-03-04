@@ -1,3 +1,0 @@
-= InFormat
-
-This project rocks and uses My License atm, will update with Phil's reccomendation.
