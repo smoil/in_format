@@ -4,7 +4,7 @@ module InFormat
     setter = opts[:setter] ? opts[:setter] : Formatters::Ssn::DEFAULT_SETTER
     getter = opts[:getter] ? opts[:getter] : Formatters::Ssn::DEFAULT_GETTER
 
-    in_format(attribute, setter: setter, getter: getter)
+    in_format(attribute, setter: setter, getter: getter, alias: opts[:alias])
   end
 
   module Formatters

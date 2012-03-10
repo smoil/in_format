@@ -51,4 +51,20 @@ describe "ssn_format" do
       beaver.ssn_custom_get.should eq("PPPPPPPPP")
     end
   end
+
+  describe "a field using ssn_format with alias: true and attr_encrypted" do
+    let(:beaver) { Beaver.new(secure_ssn: "999 99 9999") }
+
+    it "should store a value processed by the default setter" do
+      beaver.secure_ssn(true).should eq("999999999")
+    end
+
+    it "should return a value processed by the custom getter" do
+      beaver.secure_ssn.should eq("999-99-9999")
+    end
+
+    it "should internally store the encrypted ssn" do
+      beaver.encrypted_secure_ssn.should eq("QufAvAAq1kDPxiTLzQbriw==\n")
+    end
+  end
 end
