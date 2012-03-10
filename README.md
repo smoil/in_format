@@ -33,7 +33,7 @@ class MyModel < ActiveRecord::Base
   in_format :name, setter: lambda {|v| v.upcase }, getter: lambda {|v| "Mrs. #{v}"}
   
   attr_accessor :some_attribute
-  in_format :some_attribute, setter: -> v { "#{v}s"}, getter: -> v { "3 {v}"}
+  in_format :some_attribute, use_accessor: true, setter: -> v { "#{v}s"}, getter: -> v { "3 {v}"}
 end
 ```
 
