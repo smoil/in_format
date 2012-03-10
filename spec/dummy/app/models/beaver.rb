@@ -3,8 +3,8 @@ class Beaver < ActiveRecord::Base
   in_format :name_no_set, getter: Proc.new {|n| n.camelcase }
   in_format :name_no_get, setter: lambda {|v| v.upcase }
 
-  attr_accessor :alias_me
-  in_format :alias_me, use_accessor: true, setter:-> v { v.camelcase }, getter: -> v { v.upcase }
+  attr_accessor :accessor_method
+  in_format :accessor_method, use_accessor: true, setter:-> v { v.camelcase }, getter: -> v { v.upcase }
 
   phone_format :phone
   phone_format :phone_custom_set, setter: -> v { v.gsub("3", "9") }
