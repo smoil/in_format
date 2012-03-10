@@ -24,7 +24,7 @@ The `in_format` method is the most general and accepts a getter and/or a setter.
 
 Under the hood these replace the existing setters/getters and process the value through the supplied Proc/lambda and set/read the value using the hash syntax (`self[:attribute_name]`).
 
-There is an `alias` option which will instead alias the existing getter/setter with an underscore and set/read values using the aliased methods.  This can be useful if you want to combine `in_format` with `attr_accessor` or gems like `[attr_encrypted](https://github.com/shuber/attr_encrypted)` (just be sure that the aliased methods exist before using `in_format`).
+There is an `alias` option which will instead alias the existing getter/setter with an underscore and set/read values using the aliased methods.  This can be useful if you want to combine `in_format` with `attr_accessor` or gems like [attr_encrypted](https://github.com/shuber/attr_encrypted) (just be sure that the aliased methods exist before using `in_format`).
 
 You can access the original getter by passing `true` to the new one (assuming you supplied a getter).
 
