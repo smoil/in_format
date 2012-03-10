@@ -22,15 +22,18 @@ Invoke `in_format`, `phone_format` or `ssn_format` in your Model for attributes 
 
 The `in_format` method is the most general and accepts a getter and/or a setter.  
 
-Under the hood these replace the existing setters/getters and process the value through the supplied Proc/lambda and set/read the value using the hash syntax (`self[:attribute_name]`).
+Under the hood these create setters/getters and process the value through the supplied Proc/lambda and set/read the value using the hash syntax (`self[:attribute_name]`).
 
-There is an `alias` option which will instead alias the existing getter/setter with an underscore and set/read values using the aliased methods.  This can be useful if you want to combine `in_format` with `attr_accessor` or gems like [attr_encrypted](https://github.com/shuber/attr_encrypted) (just be sure that the aliased methods exist before using `in_format`).
+There is an `use_accessor` option which will override getter/setter methods matching the attribute. This can be useful if you want to combine `in_format` with `attr_accessor` or gems like [attr_encrypted](https://github.com/shuber/attr_encrypted) (just be sure that the overridden methods exist before using `in_format`).
 
 You can access the original getter by passing `true` to the new one (assuming you supplied a getter).
 
 ```ruby
 class MyModel < ActiveRecord::Base
   in_format :name, setter: lambda {|v| v.upcase }, getter: lambda {|v| "Mrs. #{v}"}
+  
+  attr_accessor :some_attribute
+  in_format :some_attribute, setter: -> v { "#{v}s"}, getter: -> v { "3 {v}"}
 end
 ```
 
@@ -38,6 +41,10 @@ end
   m = MyModel.new(name: "shirley")
   m.name(true) #=> "SHIRLEY"
   m.name #=> "Mrs. SHIRLEY"
+  
+  m.some_attribute = "beer"
+  m.some_attribute(true) #=> "beers"
+  m.some_attribute #=> "3 beers"
 </pre>
 
 This example is contrived and a little dangerous, `MyModel.new(name: nil) #=> splode!`, but you can do a lot with getters/setters.
@@ -75,7 +82,7 @@ or with `attr_encrypted`
 ```ruby
 class MyModel < ActiveRecord::Base
   attr_encrypted :ssn # defined before call to ssn_format
-  ssn_format :ssn, alias: true
+  ssn_format :ssn, use_accessor: true
 end
 ```
 
