@@ -20,4 +20,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails", "~> 2.8.1"
   s.add_development_dependency "attr_encrypted", "~> 1.2.0"
+  s.add_development_dependency "wirble"
+  s.add_development_dependency "awesome_print"
 end
