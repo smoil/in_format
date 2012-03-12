@@ -7,6 +7,8 @@ class Beaver < ActiveRecord::Base
   in_format :accessor_method, use_accessor: true, setter:-> v { v.camelcase }, getter: -> v { v.upcase }
 
   phone_format :phone
+  phone_format :phone_no_set, setter: false
+  phone_format :phone_no_get, getter: false
   phone_format :phone_custom_set, setter: -> v { v.gsub("3", "9") }
   phone_format :phone_custom_get, getter: Proc.new {|v| v.gsub("9", "P") }
 

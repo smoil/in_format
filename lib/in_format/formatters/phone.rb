@@ -1,10 +1,10 @@
 module InFormat
 
   def phone_format(attribute, opts = {})
-    setter = opts[:setter] ? opts[:setter] : Formatters::Phone::DEFAULT_SETTER
-    getter = opts[:getter] ? opts[:getter] : Formatters::Phone::DEFAULT_GETTER
+    opts[:setter] = Formatters::Phone::DEFAULT_SETTER if opts[:setter].nil?
+    opts[:getter] = Formatters::Phone::DEFAULT_GETTER if opts[:getter].nil?
 
-    in_format(attribute, setter: setter, getter: getter, use_accessor: opts[:use_accessor])
+    in_format(attribute, opts)
   end
 
   module Formatters

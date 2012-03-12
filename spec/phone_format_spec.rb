@@ -76,4 +76,20 @@ describe "phone_format" do
     end
   end
 
+  describe "a field using phone_format with a false setter" do
+    let(:beaver) { Beaver.new(phone_no_set: "1(999)645-1212x41") }
+
+    it "should store the value directly" do
+      beaver.phone_no_set(true).should eq("1(999)645-1212x41")
+    end
+  end
+
+  describe "a field using phone_format with a false getter" do
+    let(:beaver) { Beaver.new(phone_no_get: "1(999)645-1212x41") }
+
+    it "should return a raw value" do
+      beaver.phone_no_get.should eq("19996451212x41")
+    end
+  end
+
 end
