@@ -56,16 +56,18 @@ This example is contrived and a little dangerous, `MyModel.new(name: nil) #=> sp
 ```ruby
 class MyModel < ActiveRecord::Base
   phone_format :phone
+  phone_format :phone_without_getter, getter: false
 end
 ```
 
 <pre>
-  m = MyModel.new(phone: "(213) 222-2222")
+  m = MyModel.new(phone: "(213) 222-2222", phone_without_getter: "(213) 222-2222")
   m.name(true) #=> "2132222222"
   m.name #=> "222-222-2222"
+  m.phone_without_getter #=> "2132222222"
 </pre>
 
-You can supply your own getter or setter like `in_format` if the defaults don't match your needs.
+You can supply your own getter or setter like `in_format` if the defaults don't match your needs or you can pass a getter or setter with `false` to exclude it.
 
 ### ssn_format
 
