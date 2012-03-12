@@ -52,6 +52,22 @@ describe "ssn_format" do
     end
   end
 
+  describe "a field using ssn_format with a false setter" do
+    let(:beaver) { Beaver.new(ssn_no_set: "222-22-2222") }
+
+    it "should store the value directly" do
+      beaver.ssn_no_set(true).should eq("222-22-2222")
+    end
+  end
+
+  describe "a field using ssn_format with a false getter" do
+    let(:beaver) { Beaver.new(ssn_no_get: "222-22-2222") }
+
+    it "should return a raw value" do
+      beaver.ssn_no_get.should eq("222222222")
+    end
+  end
+
   describe "a field using ssn_format with alias: true and attr_encrypted" do
     let(:beaver) { Beaver.new(secure_ssn: "999 99 9999") }
 

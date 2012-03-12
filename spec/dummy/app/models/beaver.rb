@@ -13,15 +13,12 @@ class Beaver < ActiveRecord::Base
   phone_format :phone_custom_get, getter: Proc.new {|v| v.gsub("9", "P") }
 
   ssn_format :ssn
+  ssn_format :ssn_no_set, setter: false
+  ssn_format :ssn_no_get, getter: false
   ssn_format :ssn_custom_set, setter: Proc.new {|v| v.gsub("3", "9") }
   ssn_format :ssn_custom_get, getter: Proc.new {|v| v.gsub("9", "P") }
 
   attr_encrypted :secure_ssn, key: "my_secure_encryption_key"
   ssn_format :secure_ssn, use_accessor: true
-
-
-
-
-
 
 end

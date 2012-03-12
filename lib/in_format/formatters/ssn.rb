@@ -1,10 +1,10 @@
 module InFormat
 
   def ssn_format(attribute, opts = {})
-    setter = opts[:setter] ? opts[:setter] : Formatters::Ssn::DEFAULT_SETTER
-    getter = opts[:getter] ? opts[:getter] : Formatters::Ssn::DEFAULT_GETTER
+    opts[:setter] = Formatters::Ssn::DEFAULT_SETTER if opts[:setter].nil?
+    opts[:getter] = Formatters::Ssn::DEFAULT_GETTER if opts[:getter].nil?
 
-    in_format(attribute, setter: setter, getter: getter, use_accessor: opts[:use_accessor])
+    in_format(attribute, opts)
   end
 
   module Formatters
