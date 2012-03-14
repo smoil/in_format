@@ -122,4 +122,4 @@ Currently this is written specifically for ActiveRecord but I hope to make it co
 ## License
 
 * Freely distributable and licensed under the [MIT license](http://cfarajpour.mit-license.org/license.html).
-* Copyright (c) 2012 Cyrus Farajpour (smoils@gmail.com)
+* Copyright (c) 2012 Cyrus Farajpour (smoils@gmail.com) [![endorse](http://api.coderwall.com/smoil/endorsecount.png)](http://coderwall.com/smoil)
